@@ -13,7 +13,8 @@ import * as types from './actions'
 // }
 
 const initialPokeState =
- { pokeInput: ''
+ { pokeInput: '', 
+ resultingPoke: {}
 }
 
 const reducer = (pokeState = initialPokeState, action) => {

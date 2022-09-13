@@ -22,9 +22,9 @@ export function getPokemon(pokeName) {
         axios.get(`${URL}/${pokeName}`)
         .then((res) => {
             console.log(res)
-            dispatch({ type: GET_POKEMON, payload: res})
-                }
-        ).catch((err) => console.log(err))
+        
+        })
+            .catch((err) => console.log(err))
         }
     }
 

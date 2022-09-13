@@ -2,26 +2,26 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import * as actions from './state/actions' // path might be different
 import './App.css';
-import {changeInput} from './state/actions'
+import {changeInput, getPokemon} from './state/actions'
 
 
 
 
 function App(props) {
 
-  const { getPokemon, changeInput } = props;
+  const { getPokemon, changeInput, pokeInput } = props;
   useEffect(() => {
     console.log('App Rendering')
   }, [])
 
-  const onSubmit = evt => {
-    evt.preventDefault()
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    getPokemon(pokeInput)
   }
 
   const onChange = evt => {
     const {value} = evt.target
     changeInput({value})
-    console.log(props.pokeInput)
   }
  
   return (
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {changeInput})(App) // if connecting App
+export default connect(mapStateToProps, {changeInput, getPokemon})(App) // if connecting App
